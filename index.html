@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="PulseChat - Modern responsive mock chat interface">
+
+  <title>PulseChat | Mock Chat UI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app-shell">
+
+    <!-- MOBILE OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar" id="sidebar">
+
+      <!-- Brand -->
+      <div class="brand-area">
+
+        <div class="brand">
+          <div class="brand-logo">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div>
+            <h1>PulseChat</h1>
+            <p>Stay connected</p>
+          </div>
+        </div>
+
+        <button
+          class="mobile-close"
+          id="closeSidebar"
+          aria-label="Close sidebar">
+          ×
+        </button>
+
+      </div>
+
+
+      <!-- New Message -->
+      <button class="new-message-btn" id="newChatBtn">
+        <span class="plus-icon">+</span>
+        <span>New message</span>
+      </button>
+
+
+      <!-- Search -->
+      <div class="search-wrapper">
+
+        <span class="search-icon">⌕</span>
+
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search messages..."
+          autocomplete="off">
+
+        <span class="search-shortcut">⌘ K</span>
+
+      </div>
+
+
+      <!-- Navigation -->
+      <nav class="side-navigation">
+
+        <button class="nav-item active">
+          <span>▣</span>
+          <span>Inbox</span>
+          <b>5</b>
+        </button>
+
+        <button class="nav-item">
+          <span>★</span>
+          <span>Starred</span>
+        </button>
+
+        <button class="nav-item">
+          <span>◷</span>
+          <span>Archived</span>
+        </button>
+
+      </nav>
+
+
+      <!-- Conversations -->
+      <div class="conversation-heading">
+
+        <span>RECENT CHATS</span>
+
+        <button id="sortBtn">•••</button>
+
+      </div>
+
+
+      <div class="conversation-list" id="conversationList">
+
+        <!-- Alex -->
+        <button
+          class="conversation active"
+          data-name="Alex Morgan"
+          data-color="purple">
+
+          <div class="avatar purple">
+            AM
+            <span class="online-dot"></span>
+          </div>
+
+          <div class="conversation-content">
+
+            <div class="conversation-top">
+              <strong>Alex Morgan</strong>
+              <time>10:42</time>
+            </div>
+
+            <div class="conversation-bottom">
+              <span>Sounds great! Let's do it. 🚀</span>
+              <b class="unread">2</b>
+            </div>
+
+          </div>
+
+        </button>
+
+
+        <!-- Sarah -->
+        <button
+          class="conversation"
+          data-name="Sarah Wilson"
+          data-color="blue">
+
+          <div class="avatar blue">
+            SW
+          </div>
+
+          <div class="conversation-content">
+
+            <div class="conversation-top">
+              <strong>Sarah Wilson</strong>
+              <time>09:18</time>
+            </div>
+
+            <div class="conversation-bottom">
+              <span>The design looks amazing!</span>
+            </div>
+
+          </div>
+
+        </button>
+
+
+        <!-- Daniel -->
+        <button
+          class="conversation"
+          data-name="Daniel Lee"
+          data-color="orange">
+
+          <div class="avatar orange">
+            DL
+          </div>
+
+          <div class="conversation-content">
+
+            <div class="conversation-top">
+              <strong>Daniel Lee</strong>
+              <time>Yesterday</time>
+            </div>
+
+            <div class="conversation-bottom">
+              <span>I'll send the files tonight.</span>
+            </div>
+
+          </div>
+
+        </button>
+
+
+        <!-- Emily -->
+        <button
+          class="conversation"
+          data-name="Emily Carter"
+          data-color="green">
+
+          <div class="avatar green">
+            EC
+          </div>
+
+          <div class="conversation-content">
+
+            <div class="conversation-top">
+              <strong>Emily Carter</strong>
+              <time>Yesterday</time>
+            </div>
+
+            <div class="conversation-bottom">
+              <span>Thanks for your help!</span>
+            </div>
+
+          </div>
+
+        </button>
+
+
+        <!-- Michael -->
+        <button
+          class="conversation"
+          data-name="Michael Brown"
+          data-color="red">
+
+          <div class="avatar red">
+            MB
+          </div>
+
+          <div class="conversation-content">
+
+            <div class="conversation-top">
+              <strong>Michael Brown</strong>
+              <time>Monday</time>
+            </div>
+
+            <div class="conversation-bottom">
+              <span>Let's discuss the project.</span>
+            </div>
+
+          </div>
+
+        </button>
+
+      </div>
+
+
+      <!-- User profile -->
+      <div class="user-profile">
+
+        <div class="avatar user-avatar">
+          SC
+          <span class="online-dot"></span>
+        </div>
+
+        <div class="user-details">
+          <strong>Silambarasan C</strong>
+          <span>Available now</span>
+        </div>
+
+        <button class="profile-more">•••</button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- ================= CHAT PANEL ================= -->
+    <main class="chat-panel">
+
+
+      <!-- Chat Header -->
+      <header class="chat-header">
+
+        <button
+          class="menu-button"
+          id="openSidebar"
+          aria-label="Open sidebar">
+          ☰
+        </button>
+
+
+        <div class="active-user">
+
+          <div class="avatar purple" id="headerAvatar">
+            AM
+            <span class="online-dot"></span>
+          </div>
+
+          <div class="active-user-info">
+
+            <h2 id="chatName">
+              Alex Morgan
+            </h2>
+
+            <p>
+              <span class="status-dot"></span>
+              <span id="chatStatus">Online</span>
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="chat-header-actions">
+
+          <button
+            id="chatSearchBtn"
+            title="Search conversation">
+            ⌕
+          </button>
+
+          <button
+            id="callBtn"
+            title="Start call">
+            ♧
+          </button>
+
+          <button
+            id="moreBtn"
+            title="More options">
+            •••
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- Chat Info Strip -->
+      <div class="chat-info-strip">
+
+        <div>
+          <span class="info-label">CONVERSATION</span>
+          <span>Today</span>
+        </div>
+
+        <div class="secure-badge">
+          <span>✓</span>
+          Secure
+        </div>
+
+      </div>
+
+
+      <!-- ================= MESSAGES ================= -->
+      <section
+        class="messages"
+        id="messages"
+        aria-live="polite">
+
+        <div class="date-divider">
+          <span>Today</span>
+        </div>
+
+
+        <!-- Received -->
+        <div class="message-row received">
+
+          <div class="avatar purple mini-avatar">
+            AM
+          </div>
+
+          <div class="message-group">
+
+            <div class="message-bubble received-bubble">
+              Hey! How's your project going?
+            </div>
+
+            <div class="message-meta">
+              <time>10:36 AM</time>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Sent -->
+        <div class="message-row sent">
+
+          <div class="message-group">
+
+            <div class="message-bubble sent-bubble">
+              It's going really well! I'm almost finished with the UI.
+            </div>
+
+            <div class="message-meta sent-meta">
+              <time>10:38 AM</time>
+              <span class="read-status">✓✓</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Received -->
+        <div class="message-row received">
+
+          <div class="avatar purple mini-avatar">
+            AM
+          </div>
+
+          <div class="message-group">
+
+            <div class="message-bubble received-bubble">
+              That's awesome! Are you using JavaScript for the interactions?
+            </div>
+
+            <div class="message-meta">
+              <time>10:40 AM</time>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Sent -->
+        <div class="message-row sent">
+
+          <div class="message-group">
+
+            <div class="message-bubble sent-bubble">
+              Yes! I'm using JavaScript to handle the messages and UI state.
+            </div>
+
+            <div class="message-meta sent-meta">
+              <time>10:41 AM</time>
+              <span class="read-status">✓✓</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Received -->
+        <div class="message-row received">
+
+          <div class="avatar purple mini-avatar">
+            AM
+          </div>
+
+          <div class="message-group">
+
+            <div class="message-bubble received-bubble">
+              Sounds great! Let's do it. 🚀
+            </div>
+
+            <div class="message-meta">
+              <time>10:42 AM</time>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- Typing -->
+      <div class="typing-indicator" id="typingIndicator">
+
+        <div class="typing-avatar avatar purple">
+          AM
+        </div>
+
+        <div class="typing-content">
+
+          <div class="typing-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <span>Alex is typing...</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= COMPOSER ================= -->
+      <footer class="composer">
+
+        <button
+          class="composer-icon"
+          id="attachBtn"
+          title="Attach">
+          +
+        </button>
+
+
+        <div class="input-container">
+
+          <input
+            type="text"
+            id="messageInput"
+            placeholder="Write a message..."
+            autocomplete="off"
+            maxlength="500">
+
+          <div class="input-actions">
+
+            <button
+              id="emojiBtn"
+              title="Add emoji">
+              ☺
+            </button>
+
+            <button
+              id="micBtn"
+              title="Voice message">
+              ◉
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="send-button"
+          id="sendBtn"
+          title="Send message">
+
+          <span>Send</span>
+          <b>➤</b>
+
+        </button>
+
+      </footer>
+
+
+      <div class="composer-hint">
+        Press <kbd>Enter</kbd> to send
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- Toast -->
+  <div
+    class="toast"
+    id="toast"
+    role="status">
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
